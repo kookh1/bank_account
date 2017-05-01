@@ -1,11 +1,6 @@
 #include<iostream>
+#include<cstring>
 using namespace std;
-
-void ShowMenu();
-void MakeAccount();
-void DepositMoney();
-void WithdrawMoney();
-void ShowAllAccInfo();
 
 enum{ MAKE = 1, DEPOSIT, WITHDRAW, INQUIRE, EXIT };
 
@@ -25,34 +20,48 @@ public:
 	~Account();
 };
 
-Account* accArr[100];
-int accNum = 0;
+
+class AccountHandler
+{
+private:
+	Account* accArr[100];
+	int accNum;
+public:
+	AccountHandler();
+	void ShowMenu() const;
+	void MakeAccount();
+	void DepositMoney();
+	void WithdrawMoney();
+	void ShowAllAccInfo() const;
+	~AccountHandler();
+};
+
+
 
 int main()
 {
+	AccountHandler ah;
 	while (1)
 	{
-		ShowMenu();
+		ah.ShowMenu();
 		int choice;
 		cin >> choice;
 
 		switch (choice)
 		{
 		case MAKE:
-			MakeAccount();
+			ah.MakeAccount();
 			break;
 		case DEPOSIT:
-			DepositMoney();
+			ah.DepositMoney();
 			break;
 		case WITHDRAW:
-			WithdrawMoney();
+			ah.WithdrawMoney();
 			break;
 		case INQUIRE:
-			ShowAllAccInfo();
+			ah.ShowAllAccInfo();
 			break;
 		case EXIT:
-			for (int i = 0; i < accNum; i++)
-				delete accArr[i];
 			cout << "프로그램을 종료합니다." << endl;
 			return 0;
 		default:
@@ -64,7 +73,20 @@ int main()
 	return 0;
 }
 
-void ShowMenu()
+
+
+//AccountHandler Member Function
+AccountHandler::AccountHandler() : accNum(0)
+{}
+
+AccountHandler::~AccountHandler()
+{
+	for (int i = 0; i < accNum; i++)
+		delete accArr[i];
+}
+
+
+void AccountHandler::ShowMenu() const
 {
 	cout << "-------Menu-------" << endl;
 	cout << "1. 계좌개설" << endl;
@@ -75,7 +97,7 @@ void ShowMenu()
 	cout << "선택: ";
 }
 
-void MakeAccount()
+void AccountHandler::MakeAccount()
 {
 	int accId, balance;
 	char cusName[100];
@@ -90,7 +112,7 @@ void MakeAccount()
 	accArr[accNum++] = new Account(accId, balance, cusName);
 }
 
-void DepositMoney()
+void AccountHandler::DepositMoney()
 {
 	cout << "[입 금]" << endl;
 	cout << "계좌ID: ";
@@ -110,7 +132,7 @@ void DepositMoney()
 	}
 }
 
-void WithdrawMoney()
+void AccountHandler::WithdrawMoney()
 {
 	cout << "[출 금]" << endl;
 	cout << "계좌ID: ";
@@ -130,7 +152,7 @@ void WithdrawMoney()
 	}
 }
 
-void ShowAllAccInfo()
+void AccountHandler::ShowAllAccInfo() const
 {
 	for (int i = 0; i < accNum; i++)
 	{
