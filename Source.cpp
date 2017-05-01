@@ -14,11 +14,31 @@ public:
 	Account(int myaccId, int mybalance, char *mycusName);
 	Account(const Account& copy);  //deep copy constructor
 	int GetAccId() const;
-	void Deposit(int money);
-	void Withdraw(int money);
-	void ShowAccInfo() const;
+	virtual void Deposit(int money);
+	int Withdraw(int money);
+	virtual void ShowAccInfo() const;
 	~Account();
 };
+
+class NormalAccount : public Account
+{
+private:
+	int ratio;
+public:
+	NormalAccount(int myaccId, int mybalance, char *mycusName, int ratio)
+		: Account(myaccId, mybalance, mycusName), ratio(ratio)
+	{}
+	void ShowAccInfo() const
+	{
+		Account::ShowAccInfo();
+		cout << "ÀÌÀÚÀ²: " << ratio << endl << endl;
+	}
+	void Deposit(int money)
+	{
+		Account::Deposit(money+money*ratio*0.01);
+	}
+};
+
 
 
 class AccountHandler
@@ -99,17 +119,33 @@ void AccountHandler::ShowMenu() const
 
 void AccountHandler::MakeAccount()
 {
-	int accId, balance;
-	char cusName[100];
-	cout << "[°èÁÂ°³¼³]" << endl;
-	cout << "°èÁÂID: ";
-	cin >> accId;
-	cout << "ÀÌ ¸§: ";
-	cin >> cusName;
-	cout << "ÀÔ±Ý¾×: ";
-	cin >> balance;
+	cout << "[°èÁÂÁ¾·ù¼±ÅÃ]" << endl;
+	cout << "1.º¸Åë¿¹±Ý°èÁÂ 2.½Å¿ë½Å·Ú°èÁÂ" << endl;
+	cout << "¼±ÅÃ: ";
+	int choice;
+	cin >> choice;
+	if (choice == 1)
+	{
+		cout << "[º¸Åë¿¹±Ý°èÁÂ °³¼³]" << endl;
+		int accId, balance, ratio;
+		char cusName[100];
+		
+		cout << "°èÁÂID: ";
+		cin >> accId;
+		cout << "ÀÌ ¸§: ";
+		cin >> cusName;
+		cout << "ÀÔ±Ý¾×: ";
+		cin >> balance;
+		cout << "ÀÌÀÚÀ²: ";
+		cin >> ratio;
 
-	accArr[accNum++] = new Account(accId, balance, cusName);
+		accArr[accNum++] = new NormalAccount(accId, balance, cusName, ratio);
+	}
+	else if (choice == 2)
+	{
+
+	}
+	
 }
 
 void AccountHandler::DepositMoney()
@@ -185,21 +221,22 @@ void Account::Deposit(int money)
 	balance += money;
 }
 
-void Account::Withdraw(int money)
+int Account::Withdraw(int money)
 {
 	if (balance < money)
 	{
 		cout << "ÀÜ¾× ºÎÁ·!" << endl;
-		return;
+		return 0;
 	}
 	balance -= money;
+	return balance;
 }
 
 void Account::ShowAccInfo() const
 {
 	cout << "°èÁÂID: " << accId << endl;
 	cout << "ÀÌ ¸§: " << cusName << endl;
-	cout << "ÀÜ ¾×: " << balance << endl << endl;
+	cout << "ÀÜ ¾×: " << balance << endl;
 }
 
 Account::~Account()
