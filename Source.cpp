@@ -39,7 +39,33 @@ public:
 	}
 };
 
-
+class HighCreditAccount : public Account
+{
+private:
+	int ratio;
+	int addRatio;
+public:
+	HighCreditAccount(int myaccId, int mybalance, char *mycusName, int ratio, int addRatio)
+		: Account(myaccId, mybalance, mycusName), ratio(ratio), addRatio(addRatio)
+	{}
+	void ShowAccInfo() const
+	{
+		Account::ShowAccInfo();
+		cout << "이자율: " << ratio << endl;
+		cout << "신용등급(1toA, 2toB, 3toC): " << addRatio << endl << endl;
+	}
+	void Deposit(int money)
+	{
+		int num;
+		if (addRatio == 1)
+			num = 7;
+		else if (addRatio == 2)
+			num = 4;
+		else if (addRatio == 3)
+			num = 2;
+		Account::Deposit(money + money*(ratio+num)*0.01);
+	}
+};
 
 class AccountHandler
 {
@@ -143,7 +169,21 @@ void AccountHandler::MakeAccount()
 	}
 	else if (choice == 2)
 	{
+		cout << "[보통예금계좌 개설]" << endl;
+		int accId, balance, ratio, addRatio;
+		char cusName[100];
 
+		cout << "계좌ID: ";
+		cin >> accId;
+		cout << "이 름: ";
+		cin >> cusName;
+		cout << "입금액: ";
+		cin >> balance;
+		cout << "이자율: ";
+		cin >> ratio;
+		cout << "신용등급(1toA, 2toB, 3toC): ";
+		cin >> addRatio;
+		accArr[accNum++] = new HighCreditAccount(accId, balance, cusName, ratio, addRatio);
 	}
 	
 }
