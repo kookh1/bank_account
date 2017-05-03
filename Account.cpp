@@ -16,6 +16,17 @@ Account::Account(const Account& copy)  //deep copy constructor
 	strcpy(cusName, copy.cusName);
 }
 
+Account& Account::operator=(const Account& copy) //대입 연산자 오버로딩
+{
+	this->accId = copy.accId;
+	this->balance = copy.balance;
+	this->cusName = new char[strlen(copy.cusName) + 1];
+	strcpy(cusName, copy.cusName);
+	
+	return *this;
+}
+
+
 int Account::GetAccId() const
 {
 	return accId;
