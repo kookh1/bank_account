@@ -4,6 +4,11 @@
 #include "Account.h"
 typedef Account* ACCOUNT_PTR;
 
+/*
+* 클래스 이름 : BoundCheckAccountPtrArray
+* 클래스 유형 : 배열 경계값 검사 클래스
+*/
+
 class BoundCheckAccountPtrArray
 {
 private:

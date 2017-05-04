@@ -18,11 +18,6 @@ public:
 	NormalAccount(int myaccId, int mybalance, String mycusName, int ratio)
 		: Account(myaccId, mybalance, mycusName), ratio(ratio)
 	{}
-	/*
-	NormalAccount(int myaccId, int mybalance, char *mycusName, int ratio)
-		: Account(myaccId, mybalance, mycusName), ratio(ratio)
-	{}
-	*/
 	void ShowAccInfo() const     //계좌정보 출력
 	{
 		Account::ShowAccInfo();

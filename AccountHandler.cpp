@@ -34,43 +34,46 @@ void AccountHandler::MakeAccount()
 	int choice;
 	cin >> choice;
 	if (choice == NORMAL)
-	{
-		cout << "[보통예금계좌 개설]" << endl;
-		int accId, balance, ratio;
-		//char cusName[100];
-		String cusName;
-
-		cout << "계좌ID: ";
-		cin >> accId;
-		cout << "이 름: ";
-		cin >> cusName;
-		cout << "입금액: ";
-		cin >> balance;
-		cout << "이자율: ";
-		cin >> ratio;
-
-		accArr[accNum++] = new NormalAccount(accId, balance, cusName, ratio);
-	}
+		MakeNormalAccount();
 	else if (choice == CREDIT)
-	{
-		cout << "[보통예금계좌 개설]" << endl;
-		int accId, balance, ratio, addRatio;
-		//char cusName[100];
-		String cusName;
+		MakeCreditAccount();
+}
 
-		cout << "계좌ID: ";
-		cin >> accId;
-		cout << "이 름: ";
-		cin >> cusName;
-		cout << "입금액: ";
-		cin >> balance;
-		cout << "이자율: ";
-		cin >> ratio;
-		cout << "신용등급(1toA, 2toB, 3toC): ";
-		cin >> addRatio;
-		accArr[accNum++] = new HighCreditAccount(accId, balance, cusName, ratio, addRatio);
-	}
+void AccountHandler::MakeNormalAccount()
+{
+	cout << "[보통예금계좌 개설]" << endl;
+	int accId, balance, ratio;
+	String cusName;
 
+	cout << "계좌ID: ";
+	cin >> accId;
+	cout << "이 름: ";
+	cin >> cusName;
+	cout << "입금액: ";
+	cin >> balance;
+	cout << "이자율: ";
+	cin >> ratio;
+
+	accArr[accNum++] = new NormalAccount(accId, balance, cusName, ratio);
+}
+
+void AccountHandler::MakeCreditAccount()
+{
+	cout << "[보통예금계좌 개설]" << endl;
+	int accId, balance, ratio, addRatio;
+	String cusName;
+
+	cout << "계좌ID: ";
+	cin >> accId;
+	cout << "이 름: ";
+	cin >> cusName;
+	cout << "입금액: ";
+	cin >> balance;
+	cout << "이자율: ";
+	cin >> ratio;
+	cout << "신용등급(1toA, 2toB, 3toC): ";
+	cin >> addRatio;
+	accArr[accNum++] = new HighCreditAccount(accId, balance, cusName, ratio, addRatio);
 }
 
 void AccountHandler::DepositMoney()

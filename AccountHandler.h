@@ -12,7 +12,6 @@
 class AccountHandler
 {
 private:
-	//Account* accArr[100];
 	BoundCheckAccountPtrArray accArr;
 	int accNum;
 public:
@@ -23,6 +22,9 @@ public:
 	void WithdrawMoney();         //돈 출금
 	void ShowAllAccInfo() const;  //모든 계좌정보 출력
 	~AccountHandler();
+
+	void MakeNormalAccount();     //보통예금계좌 만들기
+	void MakeCreditAccount();     //신용신뢰계좌 만들기
 };
 
 #endif

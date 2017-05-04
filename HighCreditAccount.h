@@ -19,11 +19,6 @@ public:
 	HighCreditAccount(int myaccId, int mybalance, String mycusName, int ratio, int addRatio)
 		: Account(myaccId, mybalance, mycusName), ratio(ratio), addRatio(addRatio)
 	{}
-	/*
-	HighCreditAccount(int myaccId, int mybalance, char *mycusName, int ratio, int addRatio)
-		: Account(myaccId, mybalance, mycusName), ratio(ratio), addRatio(addRatio)
-	{}
-	*/
 	void ShowAccInfo() const    //계좌정보 출력
 	{
 		Account::ShowAccInfo();
@@ -32,13 +27,20 @@ public:
 	}
 	void Deposit(int money)     //입금
 	{
-		int num;
-		if (addRatio == 1)
+		int num = 0;
+		switch (addRatio)
+		{
+		case 1:
 			num = LEVEL_A;   //7%
-		else if (addRatio == 2)
+			break;
+		case 2:
 			num = LEVEL_B;   //4%
-		else if (addRatio == 3)
+			break;
+		case 3:
 			num = LEVEL_C;   //2%
+			break;
+		}
+
 		Account::Deposit(money + money*(ratio + num)*0.01);  //원금 + (원금 * (이율+추가이율)
 	}
 };

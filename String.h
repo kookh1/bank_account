@@ -3,6 +3,11 @@
 
 #include "BankingCommonDecl.h"
 
+/*
+* 클래스 이름 : String
+* 클래스 유형 : 문자열 처리 클래스
+*/
+
 class String
 {
 private:

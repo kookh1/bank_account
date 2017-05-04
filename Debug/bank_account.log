@@ -1,29 +1,10 @@
-﻿Build started 2017-05-04 오전 10:58:33.
+﻿Build started 2017-05-04 오전 11:24:44.
      1>Project "C:\Users\kookh\Desktop\git\bank_account\bank_account\bank_account.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Account.cpp AccountArray.cpp AccountHandler.cpp BankingSystemMain.cpp String.cpp
-         String.cpp
-     1>c:\users\kookh\desktop\git\bank_account\bank_account\string.cpp(13): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\kookh\desktop\git\bank_account\bank_account\string.cpp(20): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\kookh\desktop\git\bank_account\bank_account\string.cpp(35): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\kookh\desktop\git\bank_account\bank_account\string.cpp(43): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\kookh\desktop\git\bank_account\bank_account\string.cpp(44): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
-     1>c:\users\kookh\desktop\git\bank_account\bank_account\string.cpp(60): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : see declaration of 'strcpy'
-     1>c:\users\kookh\desktop\git\bank_account\bank_account\string.cpp(61): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : see declaration of 'strcat'
-         BankingSystemMain.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt AccountHandler.cpp
          AccountHandler.cpp
-     1>c:\users\kookh\desktop\git\bank_account\bank_account\normalaccount.h(33): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\kookh\desktop\git\bank_account\bank_account\highcreditaccount.h(42): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-         AccountArray.cpp
-         Account.cpp
-         Generating Code...
+     1>c:\users\kookh\desktop\git\bank_account\bank_account\normalaccount.h(28): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\kookh\desktop\git\bank_account\bank_account\highcreditaccount.h(44): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\kookh\Desktop\git\bank_account\Debug\bank_account.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\kookh\Desktop\git\bank_account\Debug\bank_account.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\kookh\Desktop\git\bank_account\Debug\bank_account.lib" /MACHINE:X86 Debug\Account.obj
          Debug\AccountArray.obj
@@ -35,4 +16,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:09.86
+Time Elapsed 00:00:01.59
