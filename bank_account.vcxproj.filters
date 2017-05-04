@@ -24,9 +24,6 @@
     <ClCompile Include="BankingSystemMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AccountArray.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="String.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -47,10 +44,10 @@
     <ClInclude Include="BankingCommonDecl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AccountArray.h">
+    <ClInclude Include="String.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="String.h">
+    <ClInclude Include="BouncCheckArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

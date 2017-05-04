@@ -7,12 +7,12 @@
 */
 
 #include "Account.h"
-#include "AccountArray.h"
+#include "BouncCheckArray.h"
 
 class AccountHandler
 {
 private:
-	BoundCheckAccountPtrArray accArr;
+	BoundCheckArray<Account*> accArr;
 	int accNum;
 public:
 	AccountHandler();
