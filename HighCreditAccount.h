@@ -3,7 +3,7 @@
 
 #include "BankingCommonDecl.h"
 #include "Account.h"
-
+#include "String.h"
 
 /*
 * 클래스 이름 : HighCreditAccount
@@ -16,9 +16,14 @@ private:
 	int ratio;     //이율
 	int addRatio;  //추가 이율
 public:
+	HighCreditAccount(int myaccId, int mybalance, String mycusName, int ratio, int addRatio)
+		: Account(myaccId, mybalance, mycusName), ratio(ratio), addRatio(addRatio)
+	{}
+	/*
 	HighCreditAccount(int myaccId, int mybalance, char *mycusName, int ratio, int addRatio)
 		: Account(myaccId, mybalance, mycusName), ratio(ratio), addRatio(addRatio)
 	{}
+	*/
 	void ShowAccInfo() const    //계좌정보 출력
 	{
 		Account::ShowAccInfo();

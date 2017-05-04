@@ -2,6 +2,16 @@
 #include "BankingCommonDecl.h"
 
 //Account Member Function
+
+Account::Account(int myaccId, int mybalance, String mycusName)
+	: accId(myaccId), balance(mybalance)
+{
+	//cusName = new char[strlen(mycusName) + 1];
+	//strcpy(cusName, mycusName);
+	cusName = mycusName;
+}
+
+/*
 Account::Account(int myaccId, int mybalance, char *mycusName)
 	: accId(myaccId), balance(mybalance)
 {
@@ -26,6 +36,13 @@ Account& Account::operator=(const Account& copy) //대입 연산자 오버로딩
 	return *this;
 }
 
+Account::~Account()
+{
+delete[] cusName;
+}
+
+
+*/
 
 int Account::GetAccId() const
 {
@@ -53,10 +70,5 @@ void Account::ShowAccInfo() const
 	cout << "계좌ID: " << accId << endl;
 	cout << "이 름: " << cusName << endl;
 	cout << "잔 액: " << balance << endl;
-}
-
-Account::~Account()
-{
-	delete[] cusName;
 }
 

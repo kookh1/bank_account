@@ -2,6 +2,7 @@
 #include "BankingCommonDecl.h"
 #include "NormalAccount.h"
 #include "HighCreditAccount.h"
+#include "String.h"
 
 //AccountHandler Member Function
 AccountHandler::AccountHandler() : accNum(0)
@@ -36,7 +37,8 @@ void AccountHandler::MakeAccount()
 	{
 		cout << "[º¸Åë¿¹±Ý°èÁÂ °³¼³]" << endl;
 		int accId, balance, ratio;
-		char cusName[100];
+		//char cusName[100];
+		String cusName;
 
 		cout << "°èÁÂID: ";
 		cin >> accId;
@@ -53,7 +55,8 @@ void AccountHandler::MakeAccount()
 	{
 		cout << "[º¸Åë¿¹±Ý°èÁÂ °³¼³]" << endl;
 		int accId, balance, ratio, addRatio;
-		char cusName[100];
+		//char cusName[100];
+		String cusName;
 
 		cout << "°èÁÂID: ";
 		cin >> accId;
