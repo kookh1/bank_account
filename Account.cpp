@@ -1,6 +1,6 @@
 #include "Account.h"
 #include "BankingCommonDecl.h"
-
+#include "ExceptionHandler.h"
 //Account Member Function
 
 Account::Account(int myaccId, int mybalance, String mycusName)
@@ -14,18 +14,20 @@ int Account::GetAccId() const
 	return accId;
 }
 
-void Account::Deposit(int money)
+void Account::Deposit(int money) 
 {
+	if (money < 0)
+	{
+		DepositException expn(money);
+		throw expn;
+	}
 	balance += money;
 }
 
-int Account::Withdraw(int money)
+int Account::Withdraw(int money) 
 {
-	if (balance < money)
-	{
-		cout << "ÀÜ¾× ºÎÁ·!" << endl;
-		return 0;
-	}
+	if (money>balance)
+		throw WithdrawException(money-balance);
 	balance -= money;
 	return balance;
 }

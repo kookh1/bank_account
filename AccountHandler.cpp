@@ -3,6 +3,7 @@
 #include "NormalAccount.h"
 #include "HighCreditAccount.h"
 #include "String.h"
+#include "ExceptionHandler.h"
 
 //AccountHandler Member Function
 AccountHandler::AccountHandler() : accNum(0)
@@ -82,17 +83,24 @@ void AccountHandler::DepositMoney()
 	cout << "계좌ID: ";
 	int accId;
 	cin >> accId;
+	cout << "입금액: ";
+	int money;
+	cin >> money;
 
-	for (int i = 0; i < accNum; i++)
+	try
 	{
-		if (accArr[i]->GetAccId() == accId)
+		for (int i = 0; i < accNum; i++)
 		{
-			cout << "입금액: ";
-			int money;
-			cin >> money;
-			accArr[i]->Deposit(money);
-			break;
+			if (accArr[i]->GetAccId() == accId)
+			{
+				accArr[i]->Deposit(money);
+				break;
+			}
 		}
+	}
+	catch (DepositException expn)
+	{
+		expn.ShowExceptionReason();
 	}
 }
 
@@ -102,17 +110,24 @@ void AccountHandler::WithdrawMoney()
 	cout << "계좌ID: ";
 	int accId;
 	cin >> accId;
+	cout << "출금액: ";
+	int money;
+	cin >> money;
 
-	for (int i = 0; i < accNum; i++)
+	try
 	{
-		if (accArr[i]->GetAccId() == accId)
+		for (int i = 0; i < accNum; i++)
 		{
-			cout << "출금액: ";
-			int money;
-			cin >> money;
-			accArr[i]->Withdraw(money);
-			break;
+			if (accArr[i]->GetAccId() == accId)
+			{
+				accArr[i]->Withdraw(money);
+				break;
+			}
 		}
+	}
+	catch (WithdrawException &expn)
+	{
+		expn.ShowExceptionReason();
 	}
 }
 

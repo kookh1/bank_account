@@ -2,6 +2,7 @@
 #define __ACCOUNT_H__
 
 #include "String.h"
+#include "ExceptionHandler.h"
 
 /*
 * 클래스 이름 : Account

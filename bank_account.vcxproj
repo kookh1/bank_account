@@ -86,6 +86,7 @@
     <ClInclude Include="BouncCheckArray.h" />
     <ClInclude Include="AccountHandler.h" />
     <ClInclude Include="BankingCommonDecl.h" />
+    <ClInclude Include="ExceptionHandler.h" />
     <ClInclude Include="HighCreditAccount.h" />
     <ClInclude Include="NormalAccount.h" />
     <ClInclude Include="String.h" />

@@ -23,8 +23,13 @@ public:
 		Account::ShowAccInfo();
 		cout << "이자율: " << ratio << endl << endl;
 	}
-	void Deposit(int money)      //입금
+	virtual void Deposit(int money)   //입금
 	{
+		if (money < 0)
+		{
+			DepositException expn(money);
+			throw expn;
+		}
 		Account::Deposit(money + money*ratio*0.01);  //원금 + (원금 * 이율)
 	}
 };

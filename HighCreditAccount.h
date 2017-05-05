@@ -25,8 +25,14 @@ public:
 		cout << "이자율: " << ratio << endl;
 		cout << "신용등급(1toA, 2toB, 3toC): " << addRatio << endl << endl;
 	}
-	void Deposit(int money)     //입금
+	virtual void Deposit(int money)     //입금
 	{
+		if (money < 0)
+		{
+			DepositException expn(money);
+			throw expn;
+		}
+
 		int num = 0;
 		switch (addRatio)
 		{
